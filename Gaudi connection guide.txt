@@ -1,0 +1,60 @@
+1)VPN
+ID: pub102928
+pass:  nicl2024!
+
+2) SSH
+ssh nicl24hasnain@friend.nhnsystem.com
+pass: Hasni@im15
+
+3) kinit
+pass: Hasni@im15
+
+4) Connect to server
+
+rlogin -l irteamsu pggaudi-s004-nicl
+
+5) docker image run 
+
+sudo docker run -it --runtime=habana -e HABANA_VISIBLE_DEVICES=all -e OMPI_MCA_btl_vader_single_copy_mechanism=none --cap-add=sys_nice --net=host --ipc=host vault.habana.ai/gaudi-docker/1.17.0/ubuntu22.04/habanalabs/pytorch-installer-2.3.1:latest
+
+
+
+How to connect the vscode with the ssh naver server
+
+1: Go to settings in VS Code and enable this setting, remote.SSH.showLoginTerminal. This pulls up the terminal so that sign in via 2FA that way.
+
+2. Download Cliget add on firefox browser to get the link for the vscode server that you need to install on the ssh friend.nhnsystem.com account
+
+
+Follow this to install the vscode server files  https://medium.com/@aref.riant/resolving-vscode-remote-editing-problems-4e8f0d0601aa
+
+mkdir -p ~/.vscode-server/bin/$COMMIT_ID
+cd ~/.vscode-server/bin/$COMMIT_ID
+wget https://update.code.visualstudio.com/commit:$COMMIT_ID/server-linux-x64/stable
+tar -xvzf stable --strip-components 1
+
+Then just connect it with ssh.nhnsystem.com
+
+
+
+Then add your local key pub into the gaudi machine ssh files.
+
+1. Generate you local key pair 
+ssh-keygen -t rsa
+
+2. Copy the public key to the gaudi server machine. 
+
+
+
+Use this as config file
+
+Host first-server
+    HostName friend.nhnsystem.com
+    User nicl24hasnain
+    ForwardAgent yes  # Enable agent forwarding
+
+Host second-server
+    HostName pggaudi-s004-nicl
+    User irteamsu
+    ProxyJump first-server  # Use first server as a jump host
+    ForwardAgent yes  # Enable agent forwarding
