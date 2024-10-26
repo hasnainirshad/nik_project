@@ -1,0 +1,15 @@
+version: '3'
+
+services:
+  fedavg:
+    image: fedavg
+    container_name: fedavg
+    volumes:
+      - ./src:/app/src  # Mount your source code
+      - ./data:/app/data  # Mount your data
+      - ./logs:/app/logs  # Mount your logs
+    environment:
+      - DATASET=CIFAR-10  # Default dataset
+      - EPOCHS=1  # Default epochs
+
+    command: python /app/src/main.py --dataset $DATASET --epochs $EPOCHS
