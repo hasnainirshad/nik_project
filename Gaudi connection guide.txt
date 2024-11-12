@@ -62,16 +62,22 @@ Host second-server
 
 
 
+github_key: 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
+
+git remote -v
+
+git remote add origin https://hasnainirshad@github.com/hasnainirshad/nik_project
+
+git pull --no-rebase origin main
+
+git push origin main
+
+git pull origin main --force 
+
+git add . && git commit -m "Updated logs and files" && git push origin main
 
 
-
-
-
-
-
-
-
-docker build -t nik_project_image .
+docker build -t fedavg .
 
 
 
