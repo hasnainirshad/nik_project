@@ -8,4 +8,5 @@ COPY requirements.txt .
 RUN pip install --no-cache-dir -r requirements.txt
 
 # Set default command with arguments
-#CMD ["python", "/app/src/main.py", "--dataset", "CIFAR-10", "--epochs", "100"]
+CMD ["python", "/app/src/example.py"] 
+#, "--dataset", "CIFAR-10", "--epochs", "100"]
