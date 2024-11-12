@@ -3,6 +3,8 @@ version: '3'
 services:
   fedavg:
     image: fedavg
+    stdin_open: true
+    tty: true
     container_name: fedavg
     volumes:
       - ./src:/app/src  # Mount your source code
@@ -12,4 +14,4 @@ services:
       - DATASET=CIFAR-10  # Default dataset
       - EPOCHS=1  # Default epochs
 
-    command: python /app/src/main.py --dataset $DATASET --epochs $EPOCHS
+#    command: python /bin/bash #/app/src/main.py --dataset $DATASET --epochs $EPOCHS
