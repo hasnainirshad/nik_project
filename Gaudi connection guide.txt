@@ -58,3 +58,33 @@ Host second-server
     User irteamsu
     ProxyJump first-server  # Use first server as a jump host
     ForwardAgent yes  # Enable agent forwarding
+
+
+
+
+
+
+
+
+
+
+
+
+
+docker build -t nik_project_image .
+
+
+
+sudo docker run -it --runtime=habana \
+    -e HABANA_VISIBLE_DEVICES=all \
+    -e OMPI_MCA_btl_vader_single_copy_mechanism=none \
+    --cap-add=sys_nice \
+    --net=host \
+    --ipc=host \
+    -v "$(pwd)/src:/app/src" \
+    -v "$(pwd)/data:/app/data" \
+    -v "$(pwd)/logs:/app/logs" \
+    fedavg
+
+
+

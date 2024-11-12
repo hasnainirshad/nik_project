@@ -103,7 +103,7 @@ def main():
     lr = 0.01
     milestones = [10,15]
     load_path = './data'
-    save_path = './log'
+    save_path = './logs'
 
     if(not os.path.exists(save_path)):
         os.makedirs(save_path)
