@@ -98,7 +98,7 @@ def test(net,criterion,testloader,device):
 
 def main():
 
-    epochs = 20
+    epochs = 100
     batch_size = 128
     lr = 0.01
     milestones = [10,15]
