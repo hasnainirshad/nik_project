@@ -1,5 +1,5 @@
 # Base image
-FROM vault.habana.ai/ui/native/gaudi-docker/1.10.0/ubuntu20.04/habanalabs/pytorch-installer-2.0.1/:latest
+FROM vault.habana.ai/gaudi-docker/1.10.0/ubuntu20.04/habanalabs/pytorch-installer-2.0.1:latest
 
 # Install dependencies
 RUN apt-get update && apt-get install -y libgl1-mesa-glx && rm -rf /var/lib/apt/lists/*
@@ -22,7 +22,7 @@ ENV WANDB_PROJECT=Fedavgllm
 ENV WANDB_ENTITY=hasnainirshad
 
 # Copy the application source code
-COPY src/ /app/src/
+COPY . /app
 
 # Set default command with arguments
-CMD ["python", "/app/src/example.py"]
+CMD ["python", "main/sft.py"]
