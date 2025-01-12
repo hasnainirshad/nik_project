@@ -26,7 +26,7 @@ Make sure to load the correct `[TEMPLATE]`, which uses conversation template fro
 We use single-answer grading setting here, where GPT-4 directly give a score on a scale of 10.
 
 ```
-export OPENAI_API_KEY=XXXXX # set the OpenAI API key
+export OPENAI_API_KEY=XXX  # set the OpenAI API key
 python gen_judge_mtbench.py --judge_model gpt-4-1106-preview --model_list [LIST-OF-MODEL-ID] --parallel [num-concurrent-api-call]   # GPT-4-Turbo
 ```
 

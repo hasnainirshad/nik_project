@@ -1,0 +1,78 @@
+_wandb:
+    value:
+        cli_version: 0.19.2
+        m: []
+        python_version: 3.10.0
+        t:
+            "1":
+                - 1
+                - 11
+                - 49
+                - 51
+                - 55
+                - 71
+                - 84
+                - 98
+            "2":
+                - 1
+                - 11
+                - 49
+                - 51
+                - 55
+                - 71
+                - 84
+                - 98
+            "3":
+                - 16
+                - 23
+                - 55
+            "4": 3.10.0
+            "5": 0.19.2
+            "6": 4.31.0
+            "8":
+                - 5
+            "12": 0.19.2
+            "13": linux-x86_64
+fed_args:
+    value:
+        fed_alg: fedavg
+        fedopt_beta1: 0.9
+        fedopt_beta2: 0.99
+        fedopt_eta: 0.001
+        fedopt_tau: 0.001
+        num_clients: 20
+        num_rounds: 200
+        prox_mu: 0.01
+        sample_clients: 2
+        save_model_freq: 50
+        split_strategy: iid
+script_args:
+    value:
+        batch_size: 16
+        dataset_name: vicgalle/alpaca-gpt4
+        dataset_sample: 20000
+        dpo_beta: 0.1
+        gradient_accumulation_steps: 1
+        gradient_checkpointing: true
+        hub_model_id: null
+        learning_rate: 2e-05
+        load_in_4bit: false
+        load_in_8bit: true
+        local_data_dir: null
+        log_with: none
+        logging_steps: 100
+        max_steps: 10
+        model_name_or_path: meta-llama/Llama-2-7b-hf
+        num_train_epochs: 3
+        output_dir: ./output/alpaca-gpt4_20000_fedavg_c20s2_i10_b16a1_l512_r32a64_20250112230827
+        peft_lora_alpha: 64
+        peft_lora_r: 32
+        push_to_hub: false
+        save_steps: 1000
+        save_total_limit: 10
+        seed: 2023
+        seq_length: 512
+        template: alpaca
+        trust_remote_code: false
+        use_auth_token: false
+        use_peft: true
