@@ -1,0 +1,23 @@
+2025-01-12 23:08:27,862 INFO    MainThread:8475 [wandb_setup.py:_flush():68] Current SDK version is 0.19.2
+2025-01-12 23:08:27,862 INFO    MainThread:8475 [wandb_setup.py:_flush():68] Configure stats pid to 8475
+2025-01-12 23:08:27,862 INFO    MainThread:8475 [wandb_setup.py:_flush():68] Loading settings from /home/humairakousar/.config/wandb/settings
+2025-01-12 23:08:27,862 INFO    MainThread:8475 [wandb_setup.py:_flush():68] Loading settings from /home/humairakousar/hasnain/OpenFedLLM/wandb/settings
+2025-01-12 23:08:27,862 INFO    MainThread:8475 [wandb_setup.py:_flush():68] Loading settings from environment variables
+2025-01-12 23:08:27,862 INFO    MainThread:8475 [wandb_init.py:_log_setup():523] Logging user logs to /home/humairakousar/hasnain/OpenFedLLM/wandb/run-20250112_230827-744idkdc/logs/debug.log
+2025-01-12 23:08:27,862 INFO    MainThread:8475 [wandb_init.py:_log_setup():524] Logging internal logs to /home/humairakousar/hasnain/OpenFedLLM/wandb/run-20250112_230827-744idkdc/logs/debug-internal.log
+2025-01-12 23:08:27,862 INFO    MainThread:8475 [wandb_init.py:init():641] calling init triggers
+2025-01-12 23:08:27,862 INFO    MainThread:8475 [wandb_init.py:init():647] wandb.init called with sweep_config: {}
+config: {'script_args': {'model_name_or_path': 'meta-llama/Llama-2-7b-hf', 'dataset_name': 'vicgalle/alpaca-gpt4', 'log_with': 'none', 'learning_rate': 2e-05, 'batch_size': 16, 'seq_length': 512, 'gradient_accumulation_steps': 1, 'load_in_8bit': True, 'load_in_4bit': False, 'use_peft': True, 'trust_remote_code': False, 'output_dir': './output/alpaca-gpt4_20000_fedavg_c20s2_i10_b16a1_l512_r32a64_20250112230827', 'peft_lora_r': 32, 'peft_lora_alpha': 64, 'logging_steps': 100, 'use_auth_token': False, 'num_train_epochs': 3, 'max_steps': 10, 'save_steps': 1000, 'save_total_limit': 10, 'push_to_hub': False, 'hub_model_id': None, 'gradient_checkpointing': True, 'template': 'alpaca', 'seed': 2023, 'dpo_beta': 0.1, 'dataset_sample': 20000, 'local_data_dir': None}, 'fed_args': {'fed_alg': 'fedavg', 'num_rounds': 200, 'num_clients': 20, 'sample_clients': 2, 'split_strategy': 'iid', 'prox_mu': 0.01, 'fedopt_tau': 0.001, 'fedopt_eta': 0.001, 'fedopt_beta1': 0.9, 'fedopt_beta2': 0.99, 'save_model_freq': 50}}
+2025-01-12 23:08:27,862 INFO    MainThread:8475 [wandb_init.py:init():674] starting backend
+2025-01-12 23:08:28,067 INFO    MainThread:8475 [wandb_init.py:init():678] sending inform_init request
+2025-01-12 23:08:28,070 INFO    MainThread:8475 [backend.py:_multiprocessing_setup():104] multiprocessing start_methods=fork,spawn,forkserver, using: spawn
+2025-01-12 23:08:28,071 INFO    MainThread:8475 [wandb_init.py:init():693] backend started and connected
+2025-01-12 23:08:28,072 INFO    MainThread:8475 [wandb_init.py:init():786] updated telemetry
+2025-01-12 23:08:28,076 INFO    MainThread:8475 [wandb_init.py:init():818] communicating run to backend with 90.0 second timeout
+2025-01-12 23:08:28,646 INFO    MainThread:8475 [wandb_init.py:init():868] starting run threads in backend
+2025-01-12 23:08:28,707 INFO    MainThread:8475 [wandb_run.py:_console_start():2415] atexit reg
+2025-01-12 23:08:28,707 INFO    MainThread:8475 [wandb_run.py:_redirect():2265] redirect: wrap_raw
+2025-01-12 23:08:28,707 INFO    MainThread:8475 [wandb_run.py:_redirect():2330] Wrapping output streams.
+2025-01-12 23:08:28,707 INFO    MainThread:8475 [wandb_run.py:_redirect():2355] Redirects installed.
+2025-01-12 23:08:28,709 INFO    MainThread:8475 [wandb_init.py:init():910] run started, returning control to user process
+2025-01-12 23:08:30,638 WARNING MsgRouterThr:8475 [router.py:message_loop():75] message_loop has been closed

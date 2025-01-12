@@ -1,0 +1,28 @@
+# Base image
+FROM vault.habana.ai/ui/native/gaudi-docker/1.10.0/ubuntu20.04/habanalabs/pytorch-installer-2.0.1/:latest
+
+# Install dependencies
+RUN apt-get update && apt-get install -y libgl1-mesa-glx && rm -rf /var/lib/apt/lists/*
+
+# Set working directory
+WORKDIR /app
+
+# Copy the requirements file
+COPY requirements.txt .
+
+# Install Python dependencies
+RUN pip install --no-cache-dir -r requirements.txt
+
+# Install wandb
+RUN pip install wandb
+
+# Environment variables for wandb
+ENV WANDB_API_KEY=XYZ
+ENV WANDB_PROJECT=Fedavgllm
+ENV WANDB_ENTITY=hasnainirshad
+
+# Copy the application source code
+COPY src/ /app/src/
+
+# Set default command with arguments
+CMD ["python", "/app/src/example.py"]

@@ -1,0 +1,50 @@
+ScriptArguments(model_name_or_path='meta-llama/Llama-2-7b-hf', dataset_name='vicgalle/alpaca-gpt4', log_with='none', learning_rate=2e-05, batch_size=16, seq_length=512, gradient_accumulation_steps=1, load_in_8bit=True, load_in_4bit=False, use_peft=True, trust_remote_code=False, output_dir='./output/alpaca-gpt4_20000_fedavg_c20s2_i10_b16a1_l512_r32a64_20250112230827', peft_lora_r=32, peft_lora_alpha=64, logging_steps=100, use_auth_token=False, num_train_epochs=3, max_steps=10, save_steps=1000, save_total_limit=10, push_to_hub=False, hub_model_id=None, gradient_checkpointing=True, template='alpaca', seed=2023, dpo_beta=0.1, dataset_sample=20000, local_data_dir=None) FedArguments(fed_alg='fedavg', num_rounds=200, num_clients=20, sample_clients=2, split_strategy='iid', prox_mu=0.01, fedopt_tau=0.001, fedopt_eta=0.001, fedopt_beta1=0.9, fedopt_beta2=0.99, save_model_freq=50)
+Found cached dataset parquet (/home/humairakousar/.cache/huggingface/datasets/vicgalle___parquet/vicgalle--alpaca-gpt4-69061ea5cb3369b0/0.0.0/14a00e99c0d15a23649d0db8944380ac81082d4b021f398733dd84f3a6c569a7)
+Loading cached processed dataset at /home/humairakousar/.cache/huggingface/datasets/vicgalle___parquet/vicgalle--alpaca-gpt4-69061ea5cb3369b0/0.0.0/14a00e99c0d15a23649d0db8944380ac81082d4b021f398733dd84f3a6c569a7/cache-be09b7f6682932b5.arrow
+Loading cached shuffled indices for dataset at /home/humairakousar/.cache/huggingface/datasets/vicgalle___parquet/vicgalle--alpaca-gpt4-69061ea5cb3369b0/0.0.0/14a00e99c0d15a23649d0db8944380ac81082d4b021f398733dd84f3a6c569a7/cache-e39a3d640decc9a0.arrow
+>> ===== After processing, Dataset vicgalle/alpaca-gpt4 has 20000 examples. =====
+Loading cached shuffled indices for dataset at /home/humairakousar/.cache/huggingface/datasets/vicgalle___parquet/vicgalle--alpaca-gpt4-69061ea5cb3369b0/0.0.0/14a00e99c0d15a23649d0db8944380ac81082d4b021f398733dd84f3a6c569a7/cache-6731fcb097dde665.arrow
+Traceback (most recent call last):
+  File "/home/humairakousar/miniconda3/envs/hasnainllm/lib/python3.10/site-packages/huggingface_hub/utils/_errors.py", line 261, in hf_raise_for_status
+    response.raise_for_status()
+  File "/home/humairakousar/miniconda3/envs/hasnainllm/lib/python3.10/site-packages/requests/models.py", line 1021, in raise_for_status
+    raise HTTPError(http_error_msg, response=self)
+requests.exceptions.HTTPError: 401 Client Error: Unauthorized for url: https://huggingface.co/meta-llama/Llama-2-7b-hf/resolve/main/config.json
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/humairakousar/miniconda3/envs/hasnainllm/lib/python3.10/site-packages/transformers/utils/hub.py", line 417, in cached_file
+    resolved_file = hf_hub_download(
+  File "/home/humairakousar/miniconda3/envs/hasnainllm/lib/python3.10/site-packages/huggingface_hub/utils/_validators.py", line 118, in _inner_fn
+    return fn(*args, **kwargs)
+  File "/home/humairakousar/miniconda3/envs/hasnainllm/lib/python3.10/site-packages/huggingface_hub/file_download.py", line 1195, in hf_hub_download
+    metadata = get_hf_file_metadata(
+  File "/home/humairakousar/miniconda3/envs/hasnainllm/lib/python3.10/site-packages/huggingface_hub/utils/_validators.py", line 118, in _inner_fn
+    return fn(*args, **kwargs)
+  File "/home/humairakousar/miniconda3/envs/hasnainllm/lib/python3.10/site-packages/huggingface_hub/file_download.py", line 1541, in get_hf_file_metadata
+    hf_raise_for_status(r)
+  File "/home/humairakousar/miniconda3/envs/hasnainllm/lib/python3.10/site-packages/huggingface_hub/utils/_errors.py", line 277, in hf_raise_for_status
+    raise GatedRepoError(message, response) from e
+huggingface_hub.utils._errors.GatedRepoError: 401 Client Error. (Request ID: Root=1-6783ccde-4553eede3085c8043f05e68d;e17b4289-220d-4b71-94a0-2f28035f8b7c)
+
+Cannot access gated repo for url https://huggingface.co/meta-llama/Llama-2-7b-hf/resolve/main/config.json.
+Access to model meta-llama/Llama-2-7b-hf is restricted. You must have access to it and be authenticated to access it. Please log in.
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/humairakousar/hasnain/OpenFedLLM/main_sft.py", line 32, in <module>
+    model = AutoModelForCausalLM.from_pretrained(
+  File "/home/humairakousar/miniconda3/envs/hasnainllm/lib/python3.10/site-packages/transformers/models/auto/auto_factory.py", line 461, in from_pretrained
+    config, kwargs = AutoConfig.from_pretrained(
+  File "/home/humairakousar/miniconda3/envs/hasnainllm/lib/python3.10/site-packages/transformers/models/auto/configuration_auto.py", line 983, in from_pretrained
+    config_dict, unused_kwargs = PretrainedConfig.get_config_dict(pretrained_model_name_or_path, **kwargs)
+  File "/home/humairakousar/miniconda3/envs/hasnainllm/lib/python3.10/site-packages/transformers/configuration_utils.py", line 617, in get_config_dict
+    config_dict, kwargs = cls._get_config_dict(pretrained_model_name_or_path, **kwargs)
+  File "/home/humairakousar/miniconda3/envs/hasnainllm/lib/python3.10/site-packages/transformers/configuration_utils.py", line 672, in _get_config_dict
+    resolved_config_file = cached_file(
+  File "/home/humairakousar/miniconda3/envs/hasnainllm/lib/python3.10/site-packages/transformers/utils/hub.py", line 433, in cached_file
+    raise EnvironmentError(
+OSError: meta-llama/Llama-2-7b-hf is not a local folder and is not a valid model identifier listed on 'https://huggingface.co/models'
+If this is a private repository, make sure to pass a token having permission to this repo with `use_auth_token` or log in with `huggingface-cli login` and pass `use_auth_token=True`.
