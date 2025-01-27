@@ -5,10 +5,11 @@ pass:  nicl2024!
 2) SSH
 ssh nicl24hasnain@friend.nhnsystem.com
 pass: Hasni@im15
+new:Dunkin@donuts15
 
 3) kinit
 pass: Hasni@im15
-
+new: Naver030307
 4) Connect to server
 
 rlogin -l irteamsu pggaudi-s004-nicl

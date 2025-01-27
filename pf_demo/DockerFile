@@ -1,0 +1,28 @@
+# Base image
+FROM vault.habana.ai/gaudi-docker/1.17.1/ubuntu22.04/habanalabs/pytorch-installer-2.3.1:latest
+
+# Install dependencies
+RUN apt-get update && apt-get install -y libgl1-mesa-glx && rm -rf /var/lib/apt/lists/*
+
+# Set working directory
+WORKDIR /app
+
+# Copy the requirements file
+COPY requirements.txt .
+
+RUN wget https://repo.anaconda.com/miniconda/Miniconda3-latest-Linux-x86_64.sh -O /miniconda.sh && \
+    sh /miniconda.sh -b -p /miniconda && \
+    rm /miniconda.sh
+
+
+ENV PATH="/miniconda/bin:${PATH}"
+
+COPY environment.yml /app/environment.yml
+
+RUN conda env create -n hasnain -f environment.yml
+
+SHELL ["conda", "run", "-n", "hasnain", "/bin/bash", "-c"]
+
+ENTRYPOINT ["conda", "run", "--no-capture-output", "-n", "hasnain", "python", "try.py"]
+
+EXPOSE 80
