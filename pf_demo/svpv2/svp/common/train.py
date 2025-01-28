@@ -433,7 +433,9 @@ def run_epoch(epoch: int, global_step: int, model: nn.Module,
                 batch_size = targets.size(0)
                 assert batch_size < 2**32, 'Size is too large! correct will overflow'  # noqa: E501
 
+                inputs = inputs.to(device)
                 targets = targets.to(device)
+                
                 outputs = model(inputs)
 
                 if batch_callback is not None:

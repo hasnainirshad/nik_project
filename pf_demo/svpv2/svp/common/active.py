@@ -127,7 +127,8 @@ def generate_models(create_graph: CreateGraph,
                                               loss_scale=loss_scale)
         if use_cuda and not isinstance(model, nn.DataParallel):
             assert model is not None  # mypy hack
-            model = nn.DataParallel(model, device_ids=device_ids)
+            #model = nn.DataParallel(model, device_ids=device_ids)
+            model = model.to(device)
 
         # Run Training
         assert model is not None  # mypy hack

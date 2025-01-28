@@ -7,11 +7,11 @@ CUDA_VISIBLE_DEVICES=3 python -m svp.cifar active --proxy-arch preact56  --arch 
 
 
 #Imagenet to DO 
+PT_HPU_GPU_MIGRATION=1 $PYTHON python -m svp.cifar active --proxy-arch preact56  --arch preact56 --prune-percent 0.5 --num-workers 4 --eval-num-workers 4 --selection-method least_confidence --epochs 1 --epochs 90 --epochs 45  --epochs 45 --learning-rate 0.01 --learning-rate 0.1 --learning-rate  0.01 --learning-rate  0.001 --proxy-epochs 1 --proxy-epochs 90 --proxy-epochs 45 --proxy-epochs 45 --proxy-learning-rate 0.01 --proxy-learning-rate 0.1 --proxy-learning-rate 0.01 --proxy-learning-rate 0.001 --dataset cifar10
 
-
-python -m svp.imagenet active --proxy-arch resnet50 --arch resnet50 --num-workers 16 --eval-num-workers 16 --batch-size 128 --scale-learning-rates --selection-method least_confidence --prune-percent 0.5 --dataset imagenet --datasets-dir /drive1/data_HK
-python -m svp.imagenet active --proxy-arch resnet50 --arch resnet50 --num-workers 16 --eval-num-workers 16 --batch-size 128 --scale-learning-rates --selection-method least_confidence --prune-percent 0.6 --dataset imagenet --datasets-dir /drive1/data_HK
-python -m svp.imagenet active --proxy-arch resnet50 --arch resnet50 --num-workers 16 --eval-num-workers 16 --batch-size 128 --scale-learning-rates --selection-method least_confidence --prune-percent 0.7 --dataset imagenet --datasets-dir /drive1/data_HK
+PT_HPU_GPU_MIGRATION=1 $PYTHON python -m svp.imagenet active --proxy-arch resnet50 --arch resnet50 --num-workers 16 --eval-num-workers 16 --batch-size 128 --scale-learning-rates --selection-method least_confidence --prune-percent 0.5 --dataset imagenet --datasets-dir /app/data
+PT_HPU_GPU_MIGRATION=1 $PYTHON python -m svp.imagenet active --proxy-arch resnet50 --arch resnet50 --num-workers 16 --eval-num-workers 16 --batch-size 128 --scale-learning-rates --selection-method least_confidence --prune-percent 0.6 --dataset imagenet --datasets-dir /app/data
+PT_HPU_GPU_MIGRATION=1 $PYTHON python -m svp.imagenet active --proxy-arch resnet50 --arch resnet50 --num-workers 16 --eval-num-workers 16 --batch-size 128 --scale-learning-rates --selection-method least_confidence --prune-percent 0.7 --dataset imagenet --datasets-dir /app/data
 
 
 #CIfar-100 experiments

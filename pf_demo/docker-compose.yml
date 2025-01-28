@@ -1,5 +1,17 @@
 services:
   app:
-    build: .
+    build: .  # Build the image from your Dockerfile
+    container_name: Gaudi_Docker  # Equivalent to --name
+    runtime: habana  # Equivalent to --runtime
+    environment:
+      - HABANA_VISIBLE_DEVICES=all  # Equivalent to -e
+      - OMPI_MCA_btl_vader_single_copy_mechanism=none
+    cap_add:
+      - SYS_NICE  # Equivalent to --cap-add
+    network_mode: host  # Equivalent to --net=host
+    ipc: host  # Equivalent to --ipc=host
+    tty: true  # Equivalent to -t (allocate a pseudo-TTY)
+    stdin_open: true  # Equivalent to -i (keep stdin open for interaction)
     volumes:
       - ./svpv2:/app/svpv2
+      - /home/irteamsu/hasnain/data:/app/data
